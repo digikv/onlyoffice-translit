@@ -1,0 +1,38 @@
+{
+    "name": "Translit",
+    "nameLocale": {
+        "sr": "Транслит",
+        "sr-Latn": "Translit",
+        "sr-Cyrl": "Транслит"
+    },
+    "guid": "asc.{7c2f4b1e-8d3a-4f6e-9b21-5a0c3e8d7f14}",
+    "version": "1.0.0",
+    "minVersion": "7.3.0",
+    "baseUrl": "",
+
+    "variations": [
+        {
+            "description": "Serbian Latin <-> Cyrillic transliteration (ooOTranslit for ONLYOFFICE)",
+            "descriptionLocale": {
+                "sr": "Пресловљавање српског текста латиница ↔ ћирилица",
+                "sr-Latn": "Preslovljavanje srpskog teksta latinica ↔ ćirilica"
+            },
+            "url": "index.html",
+            "icons": ["resources/light/icon.png", "resources/light/icon@2x.png"],
+            "icons2": [
+                { "style": "light", "100%": { "normal": "resources/light/icon.png" }, "200%": { "normal": "resources/light/icon@2x.png" } },
+                { "style": "dark",  "100%": { "normal": "resources/dark/icon.png" },  "200%": { "normal": "resources/dark/icon@2x.png" } }
+            ],
+            "isViewer": false,
+            "EditorsSupport": ["word", "cell", "slide"],
+            "isVisual": true,
+            "isModal": false,
+            "isInsideMode": true,
+            "initDataType": "none",
+            "initData": "",
+            "isUpdateOleOnResize": false,
+            "buttons": [],
+            "size": [300, 400]
+        }
+    ]
+}

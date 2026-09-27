@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Translit</title>
+    <script type="text/javascript" src="../v1/plugins.js"></script>
+    <script type="text/javascript" src="../v1/plugins-ui.js"></script>
+    <link rel="stylesheet" href="../v1/plugins.css">
+    <script type="text/javascript" src="scripts/translit.js"></script>
+    <script type="text/javascript" src="scripts/code.js"></script>
+    <style>
+        body { margin: 0; padding: 12px; font-size: 12px; }
+        h3 { font-size: 12px; margin: 14px 0 6px; font-weight: bold; }
+        .btn-text-default { width: 100%; margin-bottom: 8px; }
+        label { display: block; margin: 4px 0; cursor: pointer; }
+        textarea { width: 100%; box-sizing: border-box; font: inherit; resize: vertical; }
+        .hint { margin-top: 4px; opacity: .7; line-height: 1.4; }
+        #status { margin-top: 12px; min-height: 16px; opacity: .8; }
+    </style>
+</head>
+<body>
+    <h3>Opseg / Опсег</h3>
+    <label><input type="radio" name="scope" value="selection" checked> Označeni tekst</label>
+    <label><input type="radio" name="scope" value="all"> Ceo dokument</label>
+
+    <h3>Preslovljavanje</h3>
+    <button id="toCyr" class="btn-text-default">Latinica → Ћирилица</button>
+    <button id="toLat" class="btn-text-default">Ћирилица → Latinica</button>
+
+    <h3>Stari YUSCII tekst</h3>
+    <button id="yuLat" class="btn-text-default">YUSCII → Latinica</button>
+    <button id="yuCyr" class="btn-text-default">YUSCII → Ћирилица</button>
+    <div class="hint">Npr. <b>^a{a</b> → čaša. Posle konverzije promenite YU font (npr. „YU Times“) u običan font.</div>
+
+    <h3>Opcije</h3>
+    <label><input type="checkbox" id="skipForeign" checked> Preskoči strane reči (q, w, x, y)</label>
+    <label><input type="checkbox" id="skipRoman" checked> Preskoči rimske brojeve (XIV, MMXX)</label>
+    <label><input type="checkbox" id="skipUrls" checked> Preskoči veb adrese i e‑poštu</label>
+    <label><input type="checkbox" id="djToDj"> „dj“ → „ђ“</label>
+
+    <h3>Merne jedinice</h3>
+    <label><input type="checkbox" id="skipUnits" checked> Ne preslovljavaj merne jedinice (km, kg, m², km/h, °C…)</label>
+
+    <h3>Izuzeci</h3>
+    <textarea id="exceptions" rows="6" spellcheck="false"
+        placeholder="Jedna reč ili izraz po redu, npr.&#10;Microsoft*&#10;OnlyOffice&#10;Wi-Fi"></textarea>
+    <div class="hint">Ove reči se nikada ne preslovljavaju (u oba smera). Zvezdica na kraju znači „i svi oblici“: <b>Microsoft*</b> obuhvata i Microsoftov.</div>
+
+    <div id="status"></div>
+</body>
+</html>
