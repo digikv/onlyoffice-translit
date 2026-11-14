@@ -38,6 +38,10 @@
     var DJ_EXCEPTIONS = ["^od|j", "^nad|j", "^pod|j", "^pred|j", "^ispod|j", "^iznad|j"];
 
     var ROMAN_RE = /^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
+    // Srpske reči koje izgledaju kao rimski brojevi kada su pisane verzalom
+    var COLLIDING_ROMAN = ["MI", "VI", "LI", "DIV"];
+    var SENTENCE_END_RE = /[.!?…:;\n]/;
+    var SPACE_ONLY_RE = /^[   \t]+$/;
     var FOREIGN_RE = /[qwxyQWXY]/;
     var LATIN_LETTER = "A-Za-zČčĆćĐđŠšŽžÀ-ÖØ-öø-ÿ";
     var CYR_LETTER = "Ѐ-ӿ";
@@ -124,9 +128,46 @@
         return isUpper(src.charAt(0)) ? dst.toUpperCase() : dst;
     }
 
-    function wordToCyrillic(word, opts) {
+    // ---------- rimski brojevi u kontekstu ----------
+    // tokens naizmenično sadrži reči i ono između njih (WORD_RE)
+
+    function isRomanForm(w) { return !!w && ROMAN_RE.test(w); }
+
+    function prevWord(tokens, i) {
+        if (i < 2 || SENTENCE_END_RE.test(tokens[i - 1])) return null;
+        return tokens[i - 2];
+    }
+
+    function nextWord(tokens, i) {
+        if (i + 2 >= tokens.length || !SPACE_ONLY_RE.test(tokens[i + 1])) return null;
+        return tokens[i + 2];
+    }
+
+    function isCapsWord(w) {
+        return !!w && w.length >= 2 && !/[0-9_]/.test(w) &&
+            w === w.toUpperCase() && w !== w.toLowerCase() && !isRomanForm(w);
+    }
+
+    // Rimski broj, ili reč koja samo tako izgleda ("I tako...", "MAMA I TATA", "MI SMO")?
+    function isRoman(tokens, i) {
+        var w = tokens[i];
+        if (!isRomanForm(w)) return false;
+        var next = nextWord(tokens, i);
+        if (w === "I") {
+            if (!next || !isLetter(next.charAt(0))) return true;
+            var ln = next.toLowerCase();
+            if ((ln === "i" || ln === "ili" || ln === "do") && isRomanForm(nextWord(tokens, i + 2))) return true;
+            var prev = prevWord(tokens, i);
+            return !(prev === null || isCapsWord(prev));
+        }
+        if (COLLIDING_ROMAN.indexOf(w) !== -1) return !isCapsWord(next);
+        return true;
+    }
+
+    function wordToCyrillic(tokens, idx, opts) {
+        var word = tokens[idx];
         if (opts.skipForeign && FOREIGN_RE.test(word)) return word;
-        if (opts.skipRoman && word.length > 0 && ROMAN_RE.test(word)) return word;
+        if (opts.skipRoman && isRoman(tokens, idx)) return word;
         if (!/[A-Za-zČčĆćĐđŠšŽž]/.test(word)) return word;
 
         var lower = word.toLowerCase();
@@ -169,9 +210,9 @@
         if (!text) return text;
         text = text.normalize ? text.normalize("NFC") : text;
         return mapUnprotected(text, protectors(opts, "cyr"), function (chunk) {
-            return chunk.replace(WORD_RE, function (tok) {
-                return wordToCyrillic(tok, opts);
-            });
+            var tokens = chunk.match(WORD_RE) || [], out = "";
+            for (var i = 0; i < tokens.length; i++) out += wordToCyrillic(tokens, i, opts);
+            return out;
         });
     }
 

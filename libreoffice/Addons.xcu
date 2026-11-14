@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Meni Alatke → Translit, traka sa alatkama "Translit" i ikonice komandi -->
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    oor:name="Addons" oor:package="org.openoffice.Office">
+  <node oor:name="AddonUI">
+    <node oor:name="OfficeMenuBarMerging">
+      <node oor:name="org.digikv.translit" oor:op="replace">
+        <node oor:name="S1" oor:op="replace">
+          <prop oor:name="MergePoint" oor:type="xs:string"><value>.uno:ToolsMenu\.uno:LanguageMenu</value></prop>
+          <prop oor:name="MergeCommand" oor:type="xs:string"><value>AddAfter</value></prop>
+          <prop oor:name="MergeCommandParameter" oor:type="xs:string"><value></value></prop>
+          <prop oor:name="MergeFallback" oor:type="xs:string"><value>AddPath</value></prop>
+          <prop oor:name="MergeContext" oor:type="xs:string"><value>com.sun.star.text.TextDocument,com.sun.star.text.GlobalDocument,com.sun.star.text.WebDocument,com.sun.star.sheet.SpreadsheetDocument,com.sun.star.presentation.PresentationDocument,com.sun.star.drawing.DrawingDocument</value></prop>
+          <node oor:name="MenuItems">
+            <node oor:name="M1" oor:op="replace">
+              <prop oor:name="URL" oor:type="xs:string"><value>vnd.org.digikv.translit:menu</value></prop>
+              <prop oor:name="Title" oor:type="xs:string"><value>Translit</value></prop>
+              <node oor:name="Submenu">
+                <node oor:name="m11" oor:op="replace">
+                  <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?cyr</value></prop>
+                  <prop oor:name="Title" oor:type="xs:string"><value>Latinica → Ћирилица</value></prop>
+                  <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+                </node>
+                <node oor:name="m12" oor:op="replace">
+                  <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?lat</value></prop>
+                  <prop oor:name="Title" oor:type="xs:string"><value>Ћирилица → Latinica</value></prop>
+                  <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+                </node>
+                <node oor:name="m13" oor:op="replace">
+                  <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?yuLat</value></prop>
+                  <prop oor:name="Title" oor:type="xs:string"><value>YUSCII → Latinica</value></prop>
+                  <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+                </node>
+                <node oor:name="m14" oor:op="replace">
+                  <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?yuCyr</value></prop>
+                  <prop oor:name="Title" oor:type="xs:string"><value>YUSCII → Ћирилица</value></prop>
+                  <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+                </node>
+                <node oor:name="m05" oor:op="replace">
+                  <prop oor:name="URL" oor:type="xs:string"><value>private:separator</value></prop>
+                  <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+                </node>
+                <node oor:name="m15" oor:op="replace">
+                  <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?dialog</value></prop>
+                  <prop oor:name="Title" oor:type="xs:string"><value>Podešavanja i izuzeci…</value></prop>
+                  <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node oor:name="OfficeToolBar">
+      <node oor:name="org.digikv.translit.toolbar" oor:op="replace">
+        <node oor:name="t11" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?cyr</value></prop>
+          <prop oor:name="Title" oor:type="xs:string"><value>Latinica → Ћирилица</value></prop>
+          <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+          <prop oor:name="Context" oor:type="xs:string"><value>com.sun.star.text.TextDocument,com.sun.star.text.GlobalDocument,com.sun.star.text.WebDocument,com.sun.star.sheet.SpreadsheetDocument,com.sun.star.presentation.PresentationDocument,com.sun.star.drawing.DrawingDocument</value></prop>
+        </node>
+        <node oor:name="t12" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?lat</value></prop>
+          <prop oor:name="Title" oor:type="xs:string"><value>Ћирилица → Latinica</value></prop>
+          <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+          <prop oor:name="Context" oor:type="xs:string"><value>com.sun.star.text.TextDocument,com.sun.star.text.GlobalDocument,com.sun.star.text.WebDocument,com.sun.star.sheet.SpreadsheetDocument,com.sun.star.presentation.PresentationDocument,com.sun.star.drawing.DrawingDocument</value></prop>
+        </node>
+        <node oor:name="t13" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?yuLat</value></prop>
+          <prop oor:name="Title" oor:type="xs:string"><value>YUSCII → Latinica</value></prop>
+          <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+          <prop oor:name="Context" oor:type="xs:string"><value>com.sun.star.text.TextDocument,com.sun.star.text.GlobalDocument,com.sun.star.text.WebDocument,com.sun.star.sheet.SpreadsheetDocument,com.sun.star.presentation.PresentationDocument,com.sun.star.drawing.DrawingDocument</value></prop>
+        </node>
+        <node oor:name="t14" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?yuCyr</value></prop>
+          <prop oor:name="Title" oor:type="xs:string"><value>YUSCII → Ћирилица</value></prop>
+          <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+          <prop oor:name="Context" oor:type="xs:string"><value>com.sun.star.text.TextDocument,com.sun.star.text.GlobalDocument,com.sun.star.text.WebDocument,com.sun.star.sheet.SpreadsheetDocument,com.sun.star.presentation.PresentationDocument,com.sun.star.drawing.DrawingDocument</value></prop>
+        </node>
+        <node oor:name="t05" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string"><value>private:separator</value></prop>
+          <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+          <prop oor:name="Context" oor:type="xs:string"><value>com.sun.star.text.TextDocument,com.sun.star.text.GlobalDocument,com.sun.star.text.WebDocument,com.sun.star.sheet.SpreadsheetDocument,com.sun.star.presentation.PresentationDocument,com.sun.star.drawing.DrawingDocument</value></prop>
+        </node>
+        <node oor:name="t15" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?dialog</value></prop>
+          <prop oor:name="Title" oor:type="xs:string"><value>Podešavanja i izuzeci…</value></prop>
+          <prop oor:name="Target" oor:type="xs:string"><value>_self</value></prop>
+          <prop oor:name="Context" oor:type="xs:string"><value>com.sun.star.text.TextDocument,com.sun.star.text.GlobalDocument,com.sun.star.text.WebDocument,com.sun.star.sheet.SpreadsheetDocument,com.sun.star.presentation.PresentationDocument,com.sun.star.drawing.DrawingDocument</value></prop>
+        </node>
+      </node>
+    </node>
+    <node oor:name="Images">
+      <node oor:name="org.digikv.translit.image.cyr" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?cyr</value></prop>
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL" oor:type="xs:string"><value>%origin%/icons/cyr_16.png</value></prop>
+          <prop oor:name="ImageBigURL" oor:type="xs:string"><value>%origin%/icons/cyr_26.png</value></prop>
+        </node>
+      </node>
+      <node oor:name="org.digikv.translit.image.lat" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?lat</value></prop>
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL" oor:type="xs:string"><value>%origin%/icons/lat_16.png</value></prop>
+          <prop oor:name="ImageBigURL" oor:type="xs:string"><value>%origin%/icons/lat_26.png</value></prop>
+        </node>
+      </node>
+      <node oor:name="org.digikv.translit.image.yuLat" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?yuLat</value></prop>
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL" oor:type="xs:string"><value>%origin%/icons/yulat_16.png</value></prop>
+          <prop oor:name="ImageBigURL" oor:type="xs:string"><value>%origin%/icons/yulat_26.png</value></prop>
+        </node>
+      </node>
+      <node oor:name="org.digikv.translit.image.yuCyr" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?yuCyr</value></prop>
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL" oor:type="xs:string"><value>%origin%/icons/yucyr_16.png</value></prop>
+          <prop oor:name="ImageBigURL" oor:type="xs:string"><value>%origin%/icons/yucyr_26.png</value></prop>
+        </node>
+      </node>
+      <node oor:name="org.digikv.translit.image.dialog" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string"><value>service:org.digikv.translit.Translit?dialog</value></prop>
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL" oor:type="xs:string"><value>%origin%/icons/dialog_16.png</value></prop>
+          <prop oor:name="ImageBigURL" oor:type="xs:string"><value>%origin%/icons/dialog_26.png</value></prop>
+        </node>
+      </node>
+    </node>
+  </node>
+</oor:component-data>

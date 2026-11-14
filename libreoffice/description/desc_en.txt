@@ -1,0 +1,5 @@
+Serbian Latin ↔ Cyrillic (and legacy YUSCII) transliteration for Writer, Calc, Impress and Draw.
+
+Keeps formatting, handles the lj/nj/dž digraphs with exceptions, and leaves units of measure (5 km, 90 km/h, 22 °C), URLs, e-mail addresses, foreign words and Roman numerals untouched. User exception list, optional "dj" → "ђ", single-step undo.
+
+Tools → Translit menu and a "Translit" toolbar.

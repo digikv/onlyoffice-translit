@@ -1,2 +1,4 @@
 *.plugin
 *.zip
+*.oxt
+__pycache__/

@@ -1,0 +1,5 @@
+# VBA uvozi module samo sa CRLF krajevima redova
+*.bas text eol=crlf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.png binary

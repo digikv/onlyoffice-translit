@@ -1,0 +1,5 @@
+Preslovljavanje srpskog teksta latinica ↔ ćirilica i starog YUSCII teksta u Writer-u, Calc-u, Impress-u i Draw-u.
+
+Formatiranje se čuva. Ispravno obrađuje lj, nj, dž (i izuzetke kao injekcija, podžupan), ne dira merne jedinice (5 km, 90 km/h, 22 °C), veb adrese, e-poštu, strane reči i rimske brojeve. Korisnički izuzeci, „dj“ → „ђ“, poništavanje u jednom koraku.
+
+Meni Alatke → Translit i traka sa alatkama „Translit“.

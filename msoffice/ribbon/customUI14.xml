@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Kartica "Translit" – ista u Word-u, Excel-u i PowerPoint-u. Instalacija je ubacuje u .dotm/.xlam/.ppam. -->
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Translit_OnLoad">
+  <ribbon>
+    <tabs>
+      <tab id="TranslitTab" label="Translit">
+        <group id="TranslitRun" label="Preslovi">
+          <button id="TranslitCyr" label="Latinica → Ћирилица" image="cyr" size="large" tag="cyr"
+                  onAction="Translit_Run" screentip="Latinica → Ћирилица"
+                  supertip="Preslovljava označeni tekst u ćirilicu; ako ništa nije označeno – ceo dokument. Merne jedinice, veb adrese, strane reči i rimski brojevi ostaju latinicom (vidi Opcije)."/>
+          <button id="TranslitLat" label="Ћирилица → Latinica" image="lat" size="large" tag="lat"
+                  onAction="Translit_Run" screentip="Ћирилица → Latinica"
+                  supertip="Preslovljava označeni tekst u latinicu; ako ništa nije označeno – ceo dokument."/>
+          <button id="TranslitYuLat" label="YUSCII → Latinica" image="yulat" size="large" tag="yuLat"
+                  onAction="Translit_Run" screentip="YUSCII → Latinica"
+                  supertip="Stari YUSCII tekst (npr. ~a{a) u latinicu (čaša). Posle konverzije promenite YU font (npr. „YU Times“) u običan."/>
+          <button id="TranslitYuCyr" label="YUSCII → Ћирилица" image="yucyr" size="large" tag="yuCyr"
+                  onAction="Translit_Run" screentip="YUSCII → Ћирилица"
+                  supertip="Stari YUSCII ćirilični tekst (Q W X = Љ Њ Џ) u ćirilicu. Posle konverzije promenite YU font u običan."/>
+        </group>
+        <group id="TranslitOptions" label="Opcije">
+          <checkBox id="TranslitSkipForeign" label="Preskoči strane reči" tag="skipForeign"
+                    getPressed="Translit_GetPressed" onAction="Translit_Toggle"
+                    screentip="Preskoči strane reči" supertip="Reči sa slovima q, w, x, y (Windows, Excel…) ostaju latinicom."/>
+          <checkBox id="TranslitSkipRoman" label="Preskoči rimske brojeve" tag="skipRoman"
+                    getPressed="Translit_GetPressed" onAction="Translit_Toggle"
+                    screentip="Preskoči rimske brojeve" supertip="XIV, MMXXVI… ostaju latinicom. „I“ na početku rečenice je veznik i preslovljava se."/>
+          <checkBox id="TranslitSkipUrls" label="Preskoči veb adrese" tag="skipUrls"
+                    getPressed="Translit_GetPressed" onAction="Translit_Toggle"
+                    screentip="Preskoči veb adrese i e-poštu" supertip="www.primer.rs, https://…, ime@primer.rs ostaju netaknuti."/>
+          <checkBox id="TranslitSkipUnits" label="Preskoči merne jedinice" tag="skipUnits"
+                    getPressed="Translit_GetPressed" onAction="Translit_Toggle"
+                    screentip="Ne preslovljavaj merne jedinice" supertip="5 km, 90 km/h, 20 m², 22 °C, 64 GB ostaju latinicom. Jednoslovne jedinice (m, s, t…) samo iza broja."/>
+          <checkBox id="TranslitDj" label="„dj“ → „ђ“" tag="djToDj"
+                    getPressed="Translit_GetPressed" onAction="Translit_Toggle"
+                    screentip="„dj“ → „ђ“" supertip="Djordje → Ђорђе (osim odjednom, podjednako, nadjačati…)."/>
+          <checkBox id="TranslitScopeAll" label="Uvek ceo dokument" tag="scopeAll"
+                    getPressed="Translit_GetPressed" onAction="Translit_Toggle"
+                    screentip="Uvek ceo dokument" supertip="Preslovljava ceo dokument i kada je nešto označeno. U Excel-u: svi listovi radne sveske."/>
+        </group>
+        <group id="TranslitExceptions" label="Izuzeci">
+          <button id="TranslitEditExceptions" label="Izuzeci…" image="exceptions" size="large"
+                  onAction="Translit_EditExceptions" screentip="Izuzeci"
+                  supertip="Otvara spisak reči i izraza koji se nikada ne preslovljavaju – jedan po redu; zvezdica na kraju znači „i svi oblici“ (Microsoft* obuhvata i Microsoftov). Sačuvajte fajl; važi od sledećeg preslovljavanja."/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

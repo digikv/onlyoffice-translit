@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://openoffice.org/extensions/description/2006"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns:lo="http://libreoffice.org/extensions/description/2011">
+  <identifier value="org.digikv.translit"/>
+  <version value="1.0.0"/>
+
+  <display-name>
+    <name lang="sr-Latn">Translit – latinica ↔ ćirilica</name>
+    <name lang="sr">Транслит – латиница ↔ ћирилица</name>
+    <name lang="en">Translit – Serbian Latin ↔ Cyrillic</name>
+  </display-name>
+
+  <publisher>
+    <name xlink:href="https://github.com/digikv/onlyoffice-translit" lang="en">digikv</name>
+  </publisher>
+
+  <extension-description>
+    <src xlink:href="description/desc_sr.txt" lang="sr-Latn"/>
+    <src xlink:href="description/desc_sr.txt" lang="sr"/>
+    <src xlink:href="description/desc_en.txt" lang="en"/>
+  </extension-description>
+
+  <icon>
+    <default xlink:href="icons/translit_64.png"/>
+  </icon>
+
+  <dependencies>
+    <lo:LibreOffice-minimal-version value="6.0" lo:name="LibreOffice 6.0"/>
+  </dependencies>
+</description>
